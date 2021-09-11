@@ -2,7 +2,7 @@ import React from 'react'
 import {useState} from 'react'
 import AddUser from './AddUser'
 import UserTable from './UserTable'
-
+import EditUserForm from './EditUserForm'
 
 function App() {
 
@@ -47,7 +47,20 @@ function App() {
   
   return (
     <div>
+      {
+        editing ? ( 
+        <div>
+          <h2>Edit user</h2>
+          <EditUserForm
+            setEditing={setEditing}
+            currentUser={currentUser}
+            updateUser={updateUser}
+          />
+        </div>
+        ) : (
       <AddUser addUser={addUser}/>
+        )
+      }
       <UserTable users={users} deleteUser={deleteUser} editRow={editRow}/>
     </div>
   )
