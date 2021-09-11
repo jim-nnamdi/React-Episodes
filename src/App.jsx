@@ -39,11 +39,16 @@ function App() {
     setEditing(true)
     setCurrentUser({id:user.id, title:user.title, description:user.description})
   }
+
+  const updateUser = (id, updatedUser) => {
+    setEditing(false)
+    setUsers(users.map((user) => user.id == id ? updatedUser : user))
+  }
   
   return (
     <div>
       <AddUser addUser={addUser}/>
-      <UserTable users={users} deleteUser={deleteUser}/>
+      <UserTable users={users} deleteUser={deleteUser} editRow={editRow}/>
     </div>
   )
 }

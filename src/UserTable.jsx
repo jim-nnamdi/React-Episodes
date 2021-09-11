@@ -24,6 +24,7 @@ function UserTable(props) {
                 <td>{user.id}</td>
                 <td>{user.title}</td>
                 <td>{user.description}</td>
+                <td><button onClick={() => props.editRow(user)}>Edit user</button></td>
                 <td><button onClick={()=> props.deleteUser(user.id)}>Delete</button></td>
               </tr>
             ))) : (
